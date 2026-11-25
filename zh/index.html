@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>童惠楠 Nina Tung — 創意科技專員</title>
+<meta name="description" content="童惠楠（Nina Tung）作品集：結合人工智能、自動化與設計的活動創意科技專員。">
+<style>
+  :root{
+    --ink:#14161c; --muted:#5d6270; --line:#e3e1dc; --paper:#f7f5f1; --card:#ffffff;
+    --accent:#2d5bff; --gold:#b48a3c; --navy:#13254a;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:"Segoe UI","Helvetica Neue",Arial,"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+    --w:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+  img,video{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:var(--w);margin:0 auto;padding:0 28px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:20;background:rgba(247,245,241,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:600;letter-spacing:.02em;text-decoration:none}
+  .brand span{color:var(--muted);font-weight:400;margin-left:6px}
+  nav a{margin-left:26px;text-decoration:none;font-size:14px;color:var(--muted)}
+  nav a:hover{color:var(--ink)}
+
+  /* hero */
+  .hero{padding:72px 0 56px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,5.4vw,68px);line-height:1.04;margin:14px 0 20px;letter-spacing:-.01em}
+  h1 em{font-style:italic;color:var(--gold)}
+  .lede{font-size:18px;color:var(--muted);max-width:34em}
+  .hero-media{border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(19,37,74,.45);background:#000}
+  .hero-media video{width:100%;aspect-ratio:2/1;object-fit:cover}
+  .caption{font-size:13px;color:var(--muted);margin-top:10px}
+  .stats{display:flex;gap:34px;margin-top:30px;flex-wrap:wrap}
+  .stat b{display:block;font-family:var(--serif);font-size:30px;font-weight:500}
+  .stat span{font-size:13px;color:var(--muted)}
+
+  /* sections */
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  .sec-head{display:grid;grid-template-columns:280px 1fr;gap:40px;margin-bottom:36px}
+  .sec-head .num{font-size:13px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.4vw,42px);line-height:1.1;margin:6px 0 0}
+  .meta{font-size:14px;color:var(--muted);margin-top:10px}
+  .sec-head p{margin:0 0 12px;max-width:44em}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .tag{font-size:12.5px;border:1px solid var(--line);background:var(--card);padding:4px 11px;border-radius:99px;color:var(--muted)}
+  h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:44px 0 16px}
+
+  /* galleries */
+  .g{display:grid;gap:16px}
+  .g figure{margin:0;background:var(--card);border-radius:10px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;transition:transform .25s ease, box-shadow .25s ease}
+  .g figure:hover{transform:translateY(-3px);box-shadow:0 18px 36px -22px rgba(0,0,0,.35)}
+  .g img{width:100%;height:100%;object-fit:cover}
+  .g figcaption{font-size:13px;color:var(--muted);padding:10px 12px}
+  .g figure.novid{cursor:default}
+  .g figure.novid:hover{transform:none;box-shadow:none}
+  .g-2{grid-template-columns:repeat(2,1fr)}
+  .g-3{grid-template-columns:repeat(3,1fr)}
+  .g-4{grid-template-columns:repeat(4,1fr)}
+  .span2{grid-column:span 2}
+  .full{grid-column:1/-1}
+  .ratio-34 img{aspect-ratio:3/4}
+  .contain img{object-fit:contain;background:#fff}
+  video.inline{width:100%;background:#000}
+  .kv{background:#000}
+  .crop43 img{aspect-ratio:4/3}
+  .h560 img{height:560px;object-fit:contain}
+  .dark img{background:#2a2a2c}
+  .kv img{max-height:340px;object-fit:contain;background:#000}
+
+  /* pipeline */
+  .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;counter-reset:step}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 16px;position:relative}
+  .step::before{counter-increment:step;content:"0" counter(step);font-family:var(--serif);font-size:26px;color:var(--accent);display:block;margin-bottom:6px}
+  .step b{display:block;font-size:15px;margin-bottom:4px}
+  .step span{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .agents{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+  .agent{background:var(--navy);color:#e9edf7;border-radius:10px;padding:16px}
+  .agent b{display:block;font-size:14.5px;color:#fff}
+  .agent span{font-size:13px;color:#aab6d3}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
+  .about p{margin:0 0 14px}
+  .facts{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
+  .facts dt{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:16px}
+  .facts dt:first-child{margin-top:0}
+  .facts dd{margin:4px 0 0}
+
+  footer{padding:70px 0 90px;border-top:1px solid var(--line);text-align:center}
+  footer h2{margin-bottom:14px}
+  .btn{display:inline-block;margin-top:10px;padding:12px 22px;border-radius:99px;background:var(--ink);color:#fff;text-decoration:none;font-size:15px}
+  .btn:hover{background:var(--accent)}
+  .small{font-size:13px;color:var(--muted);margin-top:26px}
+
+
+  /* agent team section */
+  .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .pr{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .pr i{font-style:normal;font-family:var(--serif);font-size:15px;color:var(--gold);letter-spacing:.06em}
+  .pr b{display:block;font-size:16px;margin:6px 0 6px}
+  .pr span{font-size:14px;color:var(--muted);line-height:1.55}
+  .run{background:var(--navy);color:#e9edf7;border-radius:14px;padding:30px 32px;margin-top:16px}
+  .run h4{margin:0 0 4px;font-family:var(--serif);font-weight:500;font-size:22px;color:#fff}
+  .run .sub{font-size:13.5px;color:#aab6d3;margin-bottom:22px}
+  .run ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+  .run li{position:relative;padding:0 18px 0 0}
+  .run li::before{content:"";position:absolute;top:13px;left:30px;right:0;height:1px;background:rgba(255,255,255,.25)}
+  .run li:last-child::before{display:none}
+  .run .dot{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:600;position:relative}
+  .run li.me .dot{background:var(--gold)}
+  .run li b{display:block;color:#fff;font-size:14.5px;margin:12px 0 4px}
+  .run li span{font-size:13px;color:#c3cbe0;line-height:1.5}
+  .workspace{background:#e9eee9}
+  .workspace img{object-fit:contain;max-height:760px;background:#e9eee9}
+  .tools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+  .tool{border-top:2px solid var(--ink);padding-top:12px}
+  .tool b{display:block;font-size:15px;margin-bottom:4px}
+  .tool span{font-size:14px;color:var(--muted)}
+  @media (max-width:900px){.principles,.tools{grid-template-columns:1fr 1fr}.run ol{grid-template-columns:1fr;gap:18px}.run li::before{display:none}}
+  @media (max-width:540px){.principles,.tools{grid-template-columns:1fr}}
+  /* lightbox */
+  .lb{position:fixed;inset:0;background:rgba(10,12,18,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:40px}
+  .lb.on{display:flex}
+  .lb img{max-width:100%;max-height:84vh;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#cfd3dc;font-size:14px;margin:0}
+  .lb button{position:absolute;background:none;border:0;color:#fff;font-size:34px;cursor:pointer;padding:10px 16px;opacity:.8}
+  .lb button:hover{opacity:1}
+  .lb .x{top:10px;right:14px}.lb .prev{left:10px;top:50%;transform:translateY(-50%)}.lb .next{right:10px;top:50%;transform:translateY(-50%)}
+
+  @media (max-width:900px){
+    .hero .wrap,.about,.sec-head{grid-template-columns:1fr;gap:24px}
+    .g-4{grid-template-columns:repeat(2,1fr)}
+    .g-3{grid-template-columns:repeat(2,1fr)}
+    .flow{grid-template-columns:repeat(2,1fr)}
+    .agents{grid-template-columns:repeat(2,1fr)}
+    nav a:not(:last-child){display:none}
+  }
+  @media (max-width:540px){
+    .g-2,.g-3{grid-template-columns:1fr}.span2{grid-column:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">童惠楠<span>Nina Tung</span></a>
+    <nav>
+      <a href="#hkia">HKIA 70周年</a>
+      <a href="#bfai">CraftAI</a>
+      <a href="#pipeline">AI 製作流程</a>
+      <a href="#agents">AI 智能體團隊</a>
+      <a href="#more">更多作品</a>
+      <a href="#about">關於我</a>
+      <a href="../" lang="en" style="color:var(--ink);font-weight:600">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">創意科技專員 · 香港</div>
+        <h1>以 AI、自動化與設計，打造<em>現場活動</em>。</h1>
+        <p class="lede">我是數據科學畢業生，專門建立 AI 輔助製作流程，將單一概念發展成完整、可編輯的視覺系統：社交媒體帖文、場刊、LED 牆、循環影片及印刷檔案。</p>
+        <div class="stats">
+          <div class="stat"><b>10+</b><span>個活動項目（2026）</span></div>
+          <div class="stat"><b>8</b><span>個 AI 智能體組成的製作團隊</span></div>
+          <div class="stat"><b>70+</b><span>個贊助機構標誌管理</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-media">
+          <video src="../assets/hkia-loop.mp4" poster="../assets/hkia-loop-poster.jpg" autoplay muted loop playsinline></video>
+        </div>
+        <p class="caption">香港建築師學會 70 周年 LED 牆維港循環影片（4608 × 2304 母片）</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HKIA -->
+  <section id="hkia">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="num">01 · 項目案例</div>
+          <h2>香港建築師學會（HKIA）70 周年晚宴</h2>
+          <div class="meta">Eventist Hong Kong · 2026</div>
+        </div>
+        <div>
+          <p>由一個主視覺出發（維港天際線、雲石與銀色雕塑，配以海軍藍及金色），完成整體視覺製作，包括社交媒體宣傳、舞台 LED 牆及循環影片、活動場刊、背景板、拍照道具、種子卡及場地平面圖。</p>
+          <p>每件作品均以分層、文字可編輯的檔案製作，客戶修改只需幾分鐘，毋須重新繪製。</p>
+          <div class="tags"><span class="tag">主視覺系統</span><span class="tag">社交媒體宣傳</span><span class="tag">18 × 6 米 LED 牆</span><span class="tag">循環影片</span><span class="tag">場刊及印刷品</span><span class="tag">AutoCAD 平面圖</span></div>
+        </div>
+      </div>
+
+      <div class="g g-2">
+        <figure class="span2"><img src="../assets/hkia-led-wall.jpg" alt="HKIA 70th Anniversary LED wall artwork" loading="lazy"><figcaption>LED 牆設計（18 × 6 米），連贊助機構側板</figcaption></figure>
+        <figure><img src="../assets/hkia-led-venue.jpg" alt="LED wall shown in the ballroom" loading="lazy"><figcaption>LED 牆於宴會廳的實景</figcaption></figure>
+        <figure><img src="../assets/hkia-props.jpg" alt="Skyline 3D photo prop shown on site" loading="lazy"><figcaption>立體天際線拍照道具現場實景</figcaption></figure>
+      </div>
+
+      <h3>Instagram 宣傳</h3>
+      <div class="g g-4 ratio-34">
+        <figure><img src="../assets/hkia-ig-guest.jpg" alt="Guest of honour post" loading="lazy"><figcaption>主禮嘉賓</figcaption></figure>
+        <figure><img src="../assets/hkia-ig-president.jpg" alt="President's message post" loading="lazy"><figcaption>會長致辭</figcaption></figure>
+        <figure><img src="../assets/hkia-ig-goldmedal.jpg" alt="Gold Medal teaser post" loading="lazy"><figcaption>金獎預告</figcaption></figure>
+        <figure><img src="../assets/hkia-ig-dresscode.jpg" alt="Dress code post" loading="lazy"><figcaption>服裝要求</figcaption></figure>
+        <figure><img src="../assets/hkia-ig-board.jpg" alt="Organising committee messages post" loading="lazy"><figcaption>籌委會寄語</figcaption></figure>
+        <figure><img src="../assets/hkia-ig-sponsors.jpg" alt="Diamond sponsors post" loading="lazy"><figcaption>贊助機構</figcaption></figure>
+        <figure><img src="../assets/hkia-ig-countdown.jpg" alt="Two days to go countdown post" loading="lazy"><figcaption>倒數</figcaption></figure>
+        <figure><img src="../assets/hkia-ig-tonight.jpg" alt="Tonight post" loading="lazy"><figcaption>活動當日</figcaption></figure>
+      </div>
+
+      <h3>印刷品及場地佈置</h3>
+      <div class="g g-3">
+        <figure><img src="../assets/hkia-booklet-cover.jpg" alt="Event booklet cover" loading="lazy"><figcaption>活動場刊封面</figcaption></figure>
+        <figure class="span2 contain"><img src="../assets/hkia-booklet-spread.jpg" alt="Event booklet spread" loading="lazy"><figcaption>場刊跨頁：頁序規劃、廣告排版、3 毫米出血印刷檔</figcaption></figure>
+        <figure class="span2"><img src="../assets/hkia-photo-backdrop.jpg" alt="Photo backdrop with award-winning architecture" loading="lazy"><figcaption>拍照背景板：展示 70 個得獎建築項目</figcaption></figure>
+        <figure class="contain"><img src="../assets/hkia-seedcard.jpg" alt="Seed card submission board" loading="lazy"><figcaption>種子卡設計提案</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- BFAI -->
+  <section id="bfai">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="num">02 · 項目案例</div>
+          <h2>城大生成式 AI 計劃：Bright Future CraftAI 及 TKP GenAI</h2>
+          <div class="meta">香港城市大學研究助理 · 2025–2026</div>
+        </div>
+        <div>
+          <p>為中學生 AI 課程《Learning AI with AI》設計視覺形象，以及全套印刷品與社交媒體內容；亦拍攝及剪接宣傳片，結合活動實拍與 AI 生成片段。另為城大–田家炳 GenAI 計劃設計招生海報。</p>
+          <p>所有印刷檔均以 PDF/X-1a 交付，並為每款製品準備設計提案板。</p>
+          <div class="tags"><span class="tag">視覺形象</span><span class="tag">吉祥物主視覺</span><span class="tag">海報及單張</span><span class="tag">易拉架及橫額</span><span class="tag">宣傳片</span><span class="tag">工作坊課程</span></div>
+        </div>
+      </div>
+
+      <div class="g g-3">
+        <figure class="full kv"><img src="../assets/bfai-kv.jpg" alt="Bright Future CraftAI key visual" loading="lazy"><figcaption>主視覺及吉祥物標誌組合</figcaption></figure>
+        <figure><img src="../assets/bfai-opening.jpg" alt="Inauguration ceremony poster" loading="lazy"><figcaption>啟動典禮海報</figcaption></figure>
+        <figure><img src="../assets/bfai-poster.jpg" alt="Programme poster" loading="lazy"><figcaption>計劃海報</figcaption></figure>
+        <figure><img src="../assets/bfai-leaflet.jpg" alt="A5 leaflet" loading="lazy"><figcaption>A5 單張</figcaption></figure>
+        <figure><img src="../assets/bfai-ig-register.jpg" alt="Instagram registration slide" loading="lazy"><figcaption>Instagram 輪播帖文：報名</figcaption></figure>
+        <figure class="contain"><img src="../assets/bfai-rollup.jpg" alt="Roll-up banner submission board" loading="lazy"><figcaption>易拉架（800 × 1800 毫米）</figcaption></figure>
+        <figure class="contain"><img src="../assets/bfai-banner.jpg" alt="Banner submission board" loading="lazy"><figcaption>3 × 1 米及 1.5 × 0.5 米橫額</figcaption></figure>
+        <figure class="span2 novid"><video class="inline" src="../assets/bfai-promo.mp4" poster="../assets/bfai-promo-poster.jpg" controls preload="none" playsinline></video><figcaption>宣傳片：拍攝、剪接，並以 AI 生成片段延伸</figcaption></figure>
+        <figure class="contain"><img src="../assets/bfai-postcard.jpg" alt="Postcard" loading="lazy"><figcaption>明信片（150 × 100 毫米）</figcaption></figure>
+        <figure class="contain h560"><img src="../assets/tkp-poster.jpg" alt="CityUHK-TKP GenAI Programme cohort 7 poster" loading="lazy"><figcaption>城大–田家炳 GenAI 計劃：第七屆招生海報</figcaption></figure>
+        <figure class="span2 dark h560"><img src="../assets/bfai-bags.jpg" alt="Bright Future CraftAI tote bag designs" loading="lazy"><figcaption>CraftAI 環保袋：三個設計方向（正面及背面）</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pipeline -->
+  <section id="pipeline">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="num">03 · 系統</div>
+          <h2>作品背後的 AI 製作流程</h2>
+        </div>
+        <div>
+          <p>我建立的不是一次性的 AI 圖片，而是可重複運作的系統：由專責 AI 智能體（Claude Code 及 Codex，經 MCP 連接 Affinity）把設計簡報轉化為概念，再以自訂 Python 及 JavaScript 技能，將獲選概念重建為原生分層設計檔，文字可直接編輯，隨時可交印。</p>
+          <p>每個項目都有獨立的決策紀錄、工作日誌及檔案索引，確保每次修改都由最新的定稿開始。</p>
+        </div>
+      </div>
+      <div class="flow">
+        <div class="step"><b>設計簡報</b><span>項目資料、品牌規範及已確認風格。</span></div>
+        <div class="step"><b>三個概念</b><span>每份簡報以 AI 生成三個方向供客戶選擇。</span></div>
+        <div class="step"><b>圖層分拆</b><span>將獲選圖像分拆為背景、圖像及文字圖層。</span></div>
+        <div class="step"><b>Affinity 組裝</b><span>以 MCP 腳本重建為原生檔案，文字可編輯。</span></div>
+        <div class="step"><b>印刷輸出</b><span>出血、刀模線、PDF/X-1a、裁切線及低解析度校樣。</span></div>
+        <div class="step"><b>檢查及記錄</b><span>技術檢查，並保存日誌及決定，方便下次修改。</span></div>
+      </div>
+      <h3>智能體團隊</h3>
+      <div class="agents">
+        <div class="agent"><b>Affinity Designer</b><span>原生分層設計及客戶修改</span></div>
+        <div class="agent"><b>SVG Designer</b><span>可編輯向量檔</span></div>
+        <div class="agent"><b>Image Generator</b><span>按項目資料生成合乎品牌的概念</span></div>
+        <div class="agent"><b>Logo Agent</b><span>以黃金比例排列標誌的 HTML 工具</span></div>
+        <div class="agent"><b>Logo Filing</b><span>贊助機構標誌收集及核實歸檔</span></div>
+        <div class="agent"><b>Excel Records</b><span>核對清單及財務記錄</span></div>
+        <div class="agent"><b>Consultant</b><span>根據日誌、記憶及用量解答查詢</span></div>
+        <div class="agent"><b>Agent Upgrade</b><span>維護角色設定、規則及團隊記憶</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent team -->
+  <section id="agents">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="num">04 · 工作方式</div>
+          <h2>如何運用 AI 智能體團隊</h2>
+          <div class="meta">Claude Code &amp; Codex · 2026</div>
+        </div>
+        <div>
+          <p>我不會用一個對話處理所有事情，而是把製作分配給八個專責 AI 智能體，每個都有書面的角色設定、技能及准用工具。我在本機控制台選擇智能體，指定客戶項目資料夾及輸出資料夾，它只會在自己的職責範圍內工作；遇到屬於其他角色的任務，便會交接，而不是自行猜測。</p>
+          <p>這令 AI 的工作足夠穩定，可處理真正的客戶項目：核對清單、印刷檔及即時修改，而不只是示範。</p>
+        </div>
+      </div>
+
+      <div class="principles">
+        <div class="pr"><i>01</i><b>一個角色，一份工作</b><span>每個智能體都有角色設定及准用工具清單：歸檔智能體不能修改核對清單，設計智能體不能重新歸檔標誌。角色之間的交接清晰明確。</span></div>
+        <div class="pr"><i>02</i><b>項目記憶，而非對話記憶</b><span>每個客戶資料夾都有決策紀錄、項目日誌及正式檔案索引。智能體先閱讀這些紀錄，新對話亦能由已確認的文字及最新定稿開始。</span></div>
+        <div class="pr"><i>03</i><b>預設安全</b><span>智能體保留原檔，修改前先備份，並記錄每個步驟；批量改名附有還原腳本，任何改動都可追查或撤回。</span></div>
+        <div class="pr"><i>04</i><b>由我擔任創作總監</b><span>智能體負責提案及製作；創作方向、視覺審核及最終發佈由我決定。任何發佈或聯絡客戶都必須經我批准。</span></div>
+      </div>
+
+      <div class="g" style="margin-top:16px">
+        <figure class="workspace"><img src="../assets/agent-workspace.png" alt="智能體工作台：選擇智能體、填寫指示、設定項目及輸出資料夾、附加檔案並發送" loading="lazy"><figcaption>我的智能體工作台：選擇專責智能體、填寫指示、設定項目及輸出資料夾、附加檔案，再選擇以哪個 AI 執行，並發送到新的或現有的智能體視窗。</figcaption></figure>
+      </div>
+
+      <div class="tools">
+        <div class="tool"><b>用量追蹤</b><span>控制台亦會記錄每個智能體的耗時及 token 用量，讓我清楚掌握資源分配。</span></div>
+        <div class="tool"><b>日誌及交接</b><span>每次執行都會留下簡短日誌及交接筆記，下一次只需閱讀摘要，毋須翻查全部紀錄。</span></div>
+        <div class="tool"><b>顧問及團隊維護</b><span>一個智能體負責解答過往工作的查詢，另一個按我要求維護角色設定、規則及共享團隊記憶。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More work -->
+  <section id="more">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="num">05 · 精選</div>
+          <h2>更多活動作品</h2>
+          <div class="meta">Eventist Hong Kong · 2026</div>
+        </div>
+        <div>
+          <p>為會議、展覽及企業活動設計主視覺、舞台概念、動態影像及印刷品。</p>
+        </div>
+      </div>
+      <div class="g g-2">
+        <figure class="span2"><img src="../assets/ys-event.jpg" alt="Youth Development Summit Hong Kong opening ceremony on stage" loading="lazy"><figcaption>香港青年發展高峰論壇 2026：活動當日舞台</figcaption></figure>
+        <figure class="crop43"><img src="../assets/ys-stage.jpg" alt="Youth Development Summit stage concept preview" loading="lazy"><figcaption>青年發展高峰論壇：舞台及燈光概念預覽</figcaption></figure>
+        <figure class="crop43 contain"><img src="../assets/hsmg-photobooth.jpg" alt="Heng Seng media gathering photo booth submission board" loading="lazy"><figcaption>傳媒聚會：拍照亭設計及提案板</figcaption></figure>
+        <figure class="novid span2"><video class="inline" src="../assets/jpc-loop.mp4" poster="../assets/jpc-loop-poster.jpg" autoplay muted loop playsinline preload="none"></video><figcaption>少年警訊：入場循環影片</figcaption></figure>
+        <figure class="span2"><img src="../assets/lw-kv.jpg" alt="Hong Kong Legal Week 2026 stage visual" loading="lazy"><figcaption>香港法律周 2026：舞台視覺，以及講者字幕條和 Zoom 版面</figcaption></figure>
+        <figure class="contain"><img src="../assets/lw-props.jpg" alt="Legal Week photo props" loading="lazy"><figcaption>香港法律周：拍照道具</figcaption></figure>
+        <figure class="contain"><img src="../assets/lw-tablecard.jpg" alt="Legal Week table cards" loading="lazy"><figcaption>香港法律周：枱卡</figcaption></figure>
+        <figure class="crop43"><img src="../assets/inno-backdrop.jpg" alt="Zhongji Innolight backdrop shown on site" loading="lazy"><figcaption>中際旭創：開幕典禮背景板</figcaption></figure>
+        <figure class="crop43"><img src="../assets/inno-signing.jpg" alt="Signing ceremony in front of the Zhongji Innolight backdrop" loading="lazy"><figcaption>中際旭創：簽名儀式上的背景板</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <div class="num" style="font-size:13px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase">06 · 關於我</div>
+        <h2>童惠楠 Nina Tung</h2>
+        <p style="margin-top:18px">我自 2026 年 7 月起全職任職 <b>Eventist Hong Kong Limited</b> 創意科技專員，為企業及機構活動設計視覺系統。至今最大型的項目是香港建築師學會 70 周年晚宴：由單一主視覺出發，完成整體視覺製作，包括 10+ 則 Instagram 帖文、活動場刊、18 × 6 米 LED 牆及 4608 × 2304 循環影片、背景板、拍照道具及 AutoCAD 場地平面圖。</p>
+        <p>這些作品背後，是我以 Claude Code、Codex 及 MCP 建立的 8 個 AI 智能體製作團隊。每份簡報先以 AI 生成三個概念方向，再以自訂的 Python 及 JavaScript 技能，把獲選方案重建為可編輯的分層設計檔及印刷用 PDF。我亦自動化管理 8 個級別共 70+ 個贊助機構標誌，涵蓋歸檔、Excel 核對清單、備份，以及按黃金比例排列標誌的 HTML 排版工具。此外，我在 Eventist 亦為另外 8 個客戶活動進行設計，包括香港法律周 2026 講者字幕條及 Zoom 版面、循環入場影片、舞台燈光概念、背景板、名牌及邀請函。</p>
+        <p>我同時兼任<b>香港城市大學</b>研究助理（創意設計及媒體），負責 TKP GenAI 計劃及 Bright Future CraftAI 計劃的創意設計、攝影、錄影及剪接；並曾於 TKP GenAI 計劃向中一至中三學生教授生成式 AI。</p>
+      </div>
+      <dl class="facts">
+        <dt>教育背景</dt>
+        <dd>香港城市大學數據科學理學士（2026）<br>一級榮譽、優等（Cum Laude）· 院長嘉許名單 ×4</dd>
+        <dt>核心技能</dt>
+        <dd>Python · 機器學習 · 深度學習 · AI 智能體團隊（Claude Code、Codex、MCP）· 生成式 AI</dd>
+        <dt>設計及製作</dt>
+        <dd>Affinity · AutoCAD · CapCut · 印刷製作（PDF/X-1a、出血、刀模）</dd>
+        <dt>語言</dt>
+        <dd>粵語（母語）· 英語 · 普通話</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>一起創作吧。</h2>
+    <a class="btn" href="mailto:ninawntung@gmail.com">ninawntung@gmail.com</a>
+    <p class="small">© 2026 童惠楠 Nina Tung。客戶作品僅作作品集展示用途，所有標誌及品牌均屬其擁有者。</p>
+  </div>
+</footer>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="x" aria-label="關閉">×</button>
+  <button class="prev" aria-label="上一張">‹</button>
+  <img alt="">
+  <button class="next" aria-label="下一張">›</button>
+  <p></p>
+</div>
+
+<script>
+  const figs=[...document.querySelectorAll('.g figure:not(.novid)')];
+  const lb=document.getElementById('lb'), im=lb.querySelector('img'), cap=lb.querySelector('p');
+  let i=0;
+  const show=n=>{i=(n+figs.length)%figs.length;const f=figs[i];im.src=f.querySelector('img').src;im.alt=f.querySelector('img').alt;cap.textContent=f.querySelector('figcaption')?.textContent||'';};
+  figs.forEach((f,n)=>f.addEventListener('click',()=>{show(n);lb.classList.add('on');}));
+  const close=()=>lb.classList.remove('on');
+  lb.querySelector('.x').onclick=close;
+  lb.querySelector('.prev').onclick=e=>{e.stopPropagation();show(i-1)};
+  lb.querySelector('.next').onclick=e=>{e.stopPropagation();show(i+1)};
+  lb.addEventListener('click',e=>{if(e.target===lb)close()});
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});
+</script>
+</body>
+</html>
